@@ -55,5 +55,11 @@ one_d_arr operator=(one_d_arr &&other) noexcept;
 
 int operator[](int index);
 
+/**
+ * @brief 
+ * 
+ * @param lha 
+ * @param rha 
+ */
 friend void swap(one_d_arr& lha, one_d_arr& rha);
 };
