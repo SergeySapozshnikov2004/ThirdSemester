@@ -10,8 +10,9 @@ class one_d_arr
 
     public:
     
+
 /**
- * @brief Инициализирует массив
+ * @brief Инициализирует пустой массив
  * 
  */
 one_d_arr(int num_el);
