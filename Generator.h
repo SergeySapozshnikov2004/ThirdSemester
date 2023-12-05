@@ -1,9 +1,15 @@
 class Generator
-#include "two_d_arr.h"
+#include "one_dimension_arr.h"
 {
-    friend class two_d_arr;
+    friend class one_dimension_arr;
     private:
+    enum class arrayInputChoice
+    {
+    MANUAL,
+    RANDOM
+    };
     int user_value;
+    int parameter;
 
     public:
 
@@ -12,7 +18,7 @@ class Generator
  * 
  * @param user_value 
  */
-Generator(int user_value);
+Generator();
 
 /**
  * @brief Destroy the Modificator object
@@ -24,12 +30,14 @@ Generator(int user_value);
  * @brief 
  * 
  */
-void random_fill_arr();
+int random_fill_arr();
 
 /**
  * @brief 
  * 
  */
-void manual_input_arr();
+int manual_input_arr();
+
+
 
 };

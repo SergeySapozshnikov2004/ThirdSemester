@@ -2,11 +2,12 @@
 #include <cstddef>
 
 
-class one_d_arr
+class one_dimension_arr
 {
     private:
     size_t num_el;
     size_t *my_arr;
+    int user_value;
 
     public:
     
@@ -15,27 +16,27 @@ class one_d_arr
  * @brief Инициализирует пустой массив
  * 
  */
-one_d_arr(int num_el);
+one_dimension_arr(int num_el);
 
 /**
  * @brief Уничтожает массив
  * 
  */
-~one_d_arr();
+~one_dimension_arr();
 
 /**
  * @brief Construct a new one d arr::one d arr object
  * 
  * @param arr 
  */
-one_d_arr(const one_d_arr &arr);
+one_dimension_arr(const one_dimension_arr &arr);
 
 /**
  * @brief Construct a new one d arr::one d arr object
  * 
  * @param other 
  */
-one_d_arr(one_d_arr&& other) noexcept;
+one_dimension_arr(one_dimension_arr&& other) noexcept;
 
 /**
  * @brief 
@@ -43,7 +44,7 @@ one_d_arr(one_d_arr&& other) noexcept;
  * @param other 
  * @return one_d_arr& 
  */
-one_d_arr operator=(const one_d_arr &other);
+one_dimension_arr operator=(const one_dimension_arr &other);
 
 /**
  * @brief 
@@ -51,15 +52,16 @@ one_d_arr operator=(const one_d_arr &other);
  * @param other 
  * @return one_d_arr& 
  */
-one_d_arr operator=(one_d_arr &&other) noexcept;
+one_dimension_arr operator=(one_dimension_arr &&other) noexcept;
 
 int operator[](int index);
 
+void fillArr();
 /**
  * @brief 
  * 
  * @param lha 
  * @param rha 
  */
-friend void swap(one_d_arr& lha, one_d_arr& rha);
+friend void swap(one_dimension_arr& lha, one_dimension_arr& rha);
 };
