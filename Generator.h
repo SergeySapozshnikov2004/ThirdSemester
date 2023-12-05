@@ -13,6 +13,7 @@ class Generator
 
     public:
 
+
 /**
  * @brief Construct a new Modificator object
  * 
