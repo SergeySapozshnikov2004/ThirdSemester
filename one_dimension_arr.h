@@ -7,7 +7,7 @@ class one_dimension_arr
     private:
     size_t num_el;
     size_t *my_arr;
-    int user_value;
+    int choice_value;
 
     public:
     

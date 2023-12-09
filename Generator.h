@@ -1,44 +1,8 @@
-class Generator
 #include "one_dimension_arr.h"
+class Generator
 {
-    friend class one_dimension_arr;
-    private:
-    enum class arrayInputChoice
-    {
-    MANUAL,
-    RANDOM
-    };
-    int user_value;
-    int parameter;
-
+    protected:
+    float user_value;
     public:
-
-
-/**
- * @brief Construct a new Modificator object
- * 
- * @param user_value 
- */
-Generator();
-
-/**
- * @brief Destroy the Modificator object
- * 
- */
-~Generator();
-
-/**
- * @brief 
- * 
- */
-int random_fill_arr();
-
-/**
- * @brief 
- * 
- */
-int manual_input_arr();
-
-
-
+virtual void generate();
 };

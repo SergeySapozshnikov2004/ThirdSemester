@@ -2,7 +2,8 @@
 #include "Generator.h"
 #include <iostream>
 #include <stdexcept>
-
+#include "RandomGenerator.h"
+#include "ManualGenerator.h"
 
 one_dimension_arr::one_dimension_arr(int num_el)
 {
@@ -61,13 +62,44 @@ int one_dimension_arr::operator[](int index)
     return my_arr[index];
 }
 
+
 void one_dimension_arr::fillArr()
 {
-    for (size_t i = 0; i < num_el; ++i)
-    {   Generator generate = Generator();
-        generate.user_value = user_value;
-        my_arr[i] == generate.parameter;
+    enum class arrayInputChoice
+{
+  MANUAL,
+  RANDOM
+};
+    if (choice_value == 0 or choice_value == 1)
+    {
+    static_cast<int>(arrayInputChoice::MANUAL);
+    static_cast<int>(arrayInputChoice::RANDOM);
+    switch(choice_value)
+    {
+        case arrayInputChoice::RANDOM:
+        for (size_t i; i < num_el; ++i)
+        {
+        RandomGenerator rand_obj = RandomGenerator();
+        float param = rand_obj.get_user_value();
+        my_arr[i] =  param;
+        }
+        break;
+        case arrayInputChoice::MANUAL:
+       for (size_t i; i < num_el; ++i)
+        {
+        ManualGenerator manual_obj = ManualGenerator();
+        float param = manual_obj.get_user_value();
+        my_arr[i] =  param;
+        }
+        break;
+        default:
     }
+    }
+    else
+    {
+        throw std::logic_error("Необходимо ввести либо -0- либо -1-");
+    }
+    
 }
 
 void swap(one_dimension_arr& lha, one_dimension_arr& rha)
