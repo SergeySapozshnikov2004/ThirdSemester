@@ -11,12 +11,13 @@ class one_dimension_arr
 
     public:
     
+one_dimension_arr(int num_el);
 
 /**
  * @brief Инициализирует пустой массив
  * 
  */
-one_dimension_arr(int num_el);
+one_dimension_arr(int num_el, int choice_value);
 
 /**
  * @brief Уничтожает массив
@@ -56,12 +57,6 @@ one_dimension_arr operator=(one_dimension_arr &&other) noexcept;
 
 int operator[](int index);
 
-void fillArr();
-/**
- * @brief 
- * 
- * @param lha 
- * @param rha 
- */
+
 friend void swap(one_dimension_arr& lha, one_dimension_arr& rha);
 };

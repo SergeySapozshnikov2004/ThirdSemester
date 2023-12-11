@@ -1,9 +1,9 @@
-#include "two_d_arr.h"
-#include "one_d_arr.h"
+#include "two_dimension_arr.h"
+#include "one_dimension_arr.h"
 #include <cstddef>
 #include <stdexcept>
 
-two_d_arr::two_d_arr(int num_rows, int num_columns)
+two_dimension_arr::two_dimension_arr(int num_rows, int num_columns)
 {
     if (num_rows <= 0 || num_columns <= 0)
     {
@@ -16,11 +16,11 @@ two_d_arr::two_d_arr(int num_rows, int num_columns)
     my_matrix = new size_t*[num_rows];
     for (size_t i = 0; i < num_rows; i++)
     {
-        my_matrix[i] = one_d_arr(num_columns).my_arr;
+        my_matrix[i] = one_dimension_arr(num_columns).my_arr;
     }
 }
 
-two_d_arr::~two_d_arr()
+two_dimension_arr::~two_dimension_arr()
 {
     for (auto i = 0; i < num_rows; i++)
     {
@@ -29,14 +29,14 @@ two_d_arr::~two_d_arr()
     delete[] this->my_matrix;
 }
 
-two_d_arr::two_d_arr(const two_d_arr &matrix)
+two_dimension_arr::two_dimension_arr(const two_dimension_arr &matrix)
 {
     this->num_rows = matrix.num_rows;
     this->num_columns = matrix.num_columns;
     this->my_matrix = new size_t*[num_rows];   
     for (size_t i = 0; i < num_rows; ++i)
     {
-        this->my_matrix[i] = one_d_arr(num_rows).my_arr;
+        this->my_matrix[i] = one_dimension_arr(num_rows).my_arr;
         for (int j = 0; j < num_columns; ++j)
         {
             this->my_matrix[i][j] = matrix.num_columns;
@@ -44,12 +44,12 @@ two_d_arr::two_d_arr(const two_d_arr &matrix)
     }
 }
 
-two_d_arr::two_d_arr(two_d_arr &&other) noexcept
+two_dimension_arr::two_dimension_arr(two_dimension_arr &&other) noexcept
 {
     swap(*this,other);
 }   
 
-two_d_arr two_d_arr::operator=(const two_d_arr &other)
+two_dimension_arr two_dimension_arr::operator=(const two_dimension_arr &other)
 {
         if (this == &other)
     {
@@ -61,7 +61,7 @@ two_d_arr two_d_arr::operator=(const two_d_arr &other)
     return *this;
 }
 
-two_d_arr two_d_arr::operator=(two_d_arr &&other) noexcept
+two_dimension_arr two_dimension_arr::operator=(two_dimension_arr &&other) noexcept
 {
     if (this == other)
     {
@@ -81,7 +81,7 @@ two_d_arr two_d_arr::operator=(two_d_arr &&other) noexcept
     return my_matrix;
 }
 
-void swap(two_d_arr &lha, two_d_arr &rha)
+void swap(two_dimension_arr &lha, two_dimension_arr &rha)
 {
     for (size_t i = 0; i < lha.num_rows; i++)
     {
@@ -90,7 +90,7 @@ void swap(two_d_arr &lha, two_d_arr &rha)
     swap(*lha.my_matrix, *rha.my_matrix);
 }
 
-size_t *two_d_arr::operator[](int num_rows)
+size_t *two_dimension_arr::operator[](int num_rows)
 {
     return my_matrix[num_rows];
 }
