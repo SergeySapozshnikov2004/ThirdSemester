@@ -18,6 +18,7 @@ std::istream &ManualGenerator::operator>>(std::istream &in)
     return in;
 }
 
+
 float ManualGenerator::get_user_value()
 {
     return user_value;
